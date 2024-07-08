@@ -25,10 +25,10 @@ namespace Spartan.App.Controls
             CoreWebView2EnvironmentOptions options = new CoreWebView2EnvironmentOptions();
             options.EnableTrackingPrevention = true;
             options.ExclusiveUserDataFolderAccess = true;
-            options.Language = Windows.Globalization.Language.CurrentInputMethodLanguageTag;
+            //options.Language = Windows.Globalization.Language.CurrentInputMethodLanguageTag;
 
-            //environment = await CoreWebView2Environment.CreateWithOptionsAsync(null, null, options);
-            //await EnsureCoreWebView2Async(environment);
+            environment = await CoreWebView2Environment.CreateWithOptionsAsync(null, null, options);
+            await EnsureCoreWebView2Async(environment);
         }
     }
 }

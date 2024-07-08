@@ -12,6 +12,7 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="NativeMethods.txt" />
+    <None Remove="Views\BrowserPage.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NativeMethods.txt" />
@@ -27,5 +28,11 @@
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.5.240607001" />
     <PackageReference Include="WinUIEx" Version="2.3.4" />
     <Manifest Include="$(ApplicationManifest)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Views\BrowserPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
 </Project>

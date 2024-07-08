@@ -15,6 +15,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Spartan.App.Views;
 
 
 namespace Spartan.App
@@ -45,6 +46,9 @@ namespace Spartan.App
                 rootFrame = new Frame();
                 MainWindow.Current.WindowContent = rootFrame;
             }
+
+            rootFrame.Navigate(typeof(BrowserPage));
+
             MainWindow.Current.Activate();
         }
 
