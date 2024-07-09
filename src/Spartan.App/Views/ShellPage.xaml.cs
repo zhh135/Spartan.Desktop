@@ -5,6 +5,8 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
+using Spartan.App.ViewModels;
+using Spartan.App.Views.Base;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,14 +16,19 @@ using Windows.Foundation;
 using Windows.Foundation.Collections;
 
 
-namespace Spartan.App
+namespace Spartan.App.Views
 {
-    public sealed partial class MainWindow : Window
+    public sealed partial class ShellPage : ShellPageBase
     {
-        public MainWindow()
+        public ShellPage()
         {
-            InitializeComponent();
+            this.InitializeComponent();
+            Loaded += ViewModel.OnPageLoaded;
         }
+    }
+
+    public class ShellPageBase : AppPageBase<ShellViewModel>
+    {
 
     }
 }

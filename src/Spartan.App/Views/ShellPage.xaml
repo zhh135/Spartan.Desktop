@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<local:ShellPageBase
+    x:Class="Spartan.App.Views.ShellPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:Spartan.App.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid>
+        <TabView
+            x:Name="TabsControl"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            TabItemTemplate="{StaticResource ModernBrowserTabTemplate}"
+            TabItemsSource="{x:Bind ViewModel.BrowserInstances}" 
+            AddTabButtonClick="{x:Bind ViewModel.AddNewTab}"/>
+
+    </Grid>
+</local:ShellPageBase>

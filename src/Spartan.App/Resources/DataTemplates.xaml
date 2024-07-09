@@ -1,0 +1,18 @@
+﻿<ResourceDictionary
+    x:Class="Spartan.App.Resources.DataTemplates"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Spartan.App.Resources"
+    xmlns:models="using:Spartan.App.Models"
+    xmlns:views="using:Spartan.App.Views">
+
+    <DataTemplate x:Key="ModernBrowserTabTemplate" x:DataType="models:BrowserInstance">
+        <TabViewItem Header="{x:Bind Path=DocumentTitle,Mode=OneWay}">
+            <TabViewItem.IconSource>
+                <BitmapIconSource ShowAsMonochrome="False" UriSource="{x:Bind Path=Favicon,Mode=OneWay}" />
+            </TabViewItem.IconSource>
+
+            <views:BrowserPage BrowserInstance="{x:Bind }"/>
+        </TabViewItem>
+    </DataTemplate>
+</ResourceDictionary>

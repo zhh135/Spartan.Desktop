@@ -5,6 +5,7 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
+using Spartan.App.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,19 +14,38 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 
-// To learn more about WinUI, the WinUI project structure,
-// and more about our project templates, see: http://aka.ms/winui-project-info.
 
 namespace Spartan.App.Views
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class BrowserPage : Page
     {
+        private static readonly DependencyProperty BrowserInstanceProperty = DependencyProperty.Register(
+        nameof(BrowserInstance), typeof(Models.BrowserInstance), typeof(BrowserPage), new PropertyMetadata(null));
+
+        public BrowserInstance BrowserInstance
+        {
+            get => ( BrowserInstance )GetValue( BrowserInstanceProperty );
+            set => SetValue( BrowserInstanceProperty, value );
+        }
+
         public BrowserPage()
         {
             this.InitializeComponent();
+
+            Loaded += BrowserPage_Loaded;
+        }
+
+        private void BrowserPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (BrowserInstance != null)
+            {
+                BrowserInstance.CurrentWebViewInstance = WebViewControl;
+            }
+            else
+            {
+                BrowserInstance = new BrowserInstance();
+                BrowserInstance.CurrentWebViewInstance = WebViewControl;
+            }
         }
     }
 }

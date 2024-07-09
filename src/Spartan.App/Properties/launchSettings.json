@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Spartan.App (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Spartan.App (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
